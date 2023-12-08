@@ -33,7 +33,7 @@ features = [
     'Q12_14_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_None',
     'Q12_15_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Other'
 ]
-
+submit = False
 # Load the model and label encoders
 if "data_loaded" not in st.session_state:
     # Loading Dataset

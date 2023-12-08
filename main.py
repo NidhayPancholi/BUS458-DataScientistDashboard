@@ -80,87 +80,84 @@ input_dict={}
 st.write('Input Features')
 st.write('Select the values for the following features:')
 
-if "input_dict" not in st.session_state:
-    with st.form(key='my_form'):
-        input_dict['Q4_-_In_which_country_do_you_currently_reside?'] =  st.session_state.label_encoders["Q4_-_In_which_country_do_you_currently_reside?"].transform([st.selectbox('Q4', st.session_state.options['Q4_-_In_which_country_do_you_currently_reside?'])])
-        input_dict['Q27_-_Does_your_current_employer_incorporate_machine_learning_methods_into_their_business?'] = st.session_state.label_encoders["Q27_-_Does_your_current_employer_incorporate_machine_learning_methods_into_their_business?"].transform([st.selectbox('Q27', st.session_state.options['Q27_-_Does_your_current_employer_incorporate_machine_learning_methods_into_their_business?'])])
-        input_dict['Q16_-_For_how_many_years_have_you_used_machine_learning_methods?'] = st.session_state.label_encoders["Q16_-_For_how_many_years_have_you_used_machine_learning_methods?"].transform([st.selectbox('Q16', st.session_state.options['Q16_-_For_how_many_years_have_you_used_machine_learning_methods?'])])
-        input_dict['Q11_-_For_how_many_years_have_you_been_writing_code_and/or_programming?'] = st.session_state.label_encoders["Q11_-_For_how_many_years_have_you_been_writing_code_and/or_programming?"].transform([st.selectbox('Q11', st.session_state.options['Q11_-_For_how_many_years_have_you_been_writing_code_and/or_programming?'])])
-        input_dict['Q23_-_Select_the_title_most_similar_to_your_current_role_(or_most_recent_title_if_retired):_-_Selected_Choice'] = st.session_state.label_encoders["Q23_-_Select_the_title_most_similar_to_your_current_role_(or_most_recent_title_if_retired):_-_Selected_Choice"].transform([st.selectbox('Q23', st.session_state.options['Q23_-_Select_the_title_most_similar_to_your_current_role_(or_most_recent_title_if_retired):_-_Selected_Choice'])])
-        input_dict['Q24_-_In_what_industry_is_your_current_employer/contract_(or_your_most_recent_employer_if_retired)?_-_Selected_Choice'] = st.session_state.label_encoders["Q24_-_In_what_industry_is_your_current_employer/contract_(or_your_most_recent_employer_if_retired)?_-_Selected_Choice"].transform([st.selectbox('Q24', st.session_state.options['Q24_-_In_what_industry_is_your_current_employer/contract_(or_your_most_recent_employer_if_retired)?_-_Selected_Choice'])])
-        input_dict['Q2_-_What_is_your_age_(#_years)?'] = st.session_state.label_encoders["Q2_-_What_is_your_age_(#_years)?"].transform([st.selectbox('Q2', st.session_state.options['Q2_-_What_is_your_age_(#_years)?'])])
-        input_dict['Q26_-_Approximately_how_many_individuals_are_responsible_for_data_science_workloads_at_your_place_of_business?'] = st.session_state.label_encoders["Q26_-_Approximately_how_many_individuals_are_responsible_for_data_science_workloads_at_your_place_of_business?"].transform([st.selectbox('Q26', st.session_state.options['Q26_-_Approximately_how_many_individuals_are_responsible_for_data_science_workloads_at_your_place_of_business?'])])
-        input_dict['Q25_-_What_is_the_size_of_the_company_where_you_are_employed?'] = st.session_state.label_encoders["Q25_-_What_is_the_size_of_the_company_where_you_are_employed?"].transform([st.selectbox('Q25', st.session_state.options['Q25_-_What_is_the_size_of_the_company_where_you_are_employed?'])])
-        input_dict['Q9_-_Have_you_ever_published_any_academic_research_(papers,_preprints,_conference_proceedings,_etc)?'] = st.session_state.label_encoders["Q9_-_Have_you_ever_published_any_academic_research_(papers,_preprints,_conference_proceedings,_etc)?"].transform([st.selectbox('Q9', st.session_state.options['Q9_-_Have_you_ever_published_any_academic_research_(papers,_preprints,_conference_proceedings,_etc)?'])])
-        input_dict['Q43_-_Approximately_how_many_times_have_you_used_a_TPU_(tensor_processing_unit)?'] = st.session_state.label_encoders["Q43_-_Approximately_how_many_times_have_you_used_a_TPU_(tensor_processing_unit)?"].transform([st.selectbox('Q43', st.session_state.options['Q43_-_Approximately_how_many_times_have_you_used_a_TPU_(tensor_processing_unit)?'])])
+with st.form(key='my_form'):
+    input_dict['Q4_-_In_which_country_do_you_currently_reside?'] =  st.session_state.label_encoders["Q4_-_In_which_country_do_you_currently_reside?"].transform([st.selectbox('Q4', st.session_state.options['Q4_-_In_which_country_do_you_currently_reside?'])])
+    input_dict['Q27_-_Does_your_current_employer_incorporate_machine_learning_methods_into_their_business?'] = st.session_state.label_encoders["Q27_-_Does_your_current_employer_incorporate_machine_learning_methods_into_their_business?"].transform([st.selectbox('Q27', st.session_state.options['Q27_-_Does_your_current_employer_incorporate_machine_learning_methods_into_their_business?'])])
+    input_dict['Q16_-_For_how_many_years_have_you_used_machine_learning_methods?'] = st.session_state.label_encoders["Q16_-_For_how_many_years_have_you_used_machine_learning_methods?"].transform([st.selectbox('Q16', st.session_state.options['Q16_-_For_how_many_years_have_you_used_machine_learning_methods?'])])
+    input_dict['Q11_-_For_how_many_years_have_you_been_writing_code_and/or_programming?'] = st.session_state.label_encoders["Q11_-_For_how_many_years_have_you_been_writing_code_and/or_programming?"].transform([st.selectbox('Q11', st.session_state.options['Q11_-_For_how_many_years_have_you_been_writing_code_and/or_programming?'])])
+    input_dict['Q23_-_Select_the_title_most_similar_to_your_current_role_(or_most_recent_title_if_retired):_-_Selected_Choice'] = st.session_state.label_encoders["Q23_-_Select_the_title_most_similar_to_your_current_role_(or_most_recent_title_if_retired):_-_Selected_Choice"].transform([st.selectbox('Q23', st.session_state.options['Q23_-_Select_the_title_most_similar_to_your_current_role_(or_most_recent_title_if_retired):_-_Selected_Choice'])])
+    input_dict['Q24_-_In_what_industry_is_your_current_employer/contract_(or_your_most_recent_employer_if_retired)?_-_Selected_Choice'] = st.session_state.label_encoders["Q24_-_In_what_industry_is_your_current_employer/contract_(or_your_most_recent_employer_if_retired)?_-_Selected_Choice"].transform([st.selectbox('Q24', st.session_state.options['Q24_-_In_what_industry_is_your_current_employer/contract_(or_your_most_recent_employer_if_retired)?_-_Selected_Choice'])])
+    input_dict['Q2_-_What_is_your_age_(#_years)?'] = st.session_state.label_encoders["Q2_-_What_is_your_age_(#_years)?"].transform([st.selectbox('Q2', st.session_state.options['Q2_-_What_is_your_age_(#_years)?'])])
+    input_dict['Q26_-_Approximately_how_many_individuals_are_responsible_for_data_science_workloads_at_your_place_of_business?'] = st.session_state.label_encoders["Q26_-_Approximately_how_many_individuals_are_responsible_for_data_science_workloads_at_your_place_of_business?"].transform([st.selectbox('Q26', st.session_state.options['Q26_-_Approximately_how_many_individuals_are_responsible_for_data_science_workloads_at_your_place_of_business?'])])
+    input_dict['Q25_-_What_is_the_size_of_the_company_where_you_are_employed?'] = st.session_state.label_encoders["Q25_-_What_is_the_size_of_the_company_where_you_are_employed?"].transform([st.selectbox('Q25', st.session_state.options['Q25_-_What_is_the_size_of_the_company_where_you_are_employed?'])])
+    input_dict['Q9_-_Have_you_ever_published_any_academic_research_(papers,_preprints,_conference_proceedings,_etc)?'] = st.session_state.label_encoders["Q9_-_Have_you_ever_published_any_academic_research_(papers,_preprints,_conference_proceedings,_etc)?"].transform([st.selectbox('Q9', st.session_state.options['Q9_-_Have_you_ever_published_any_academic_research_(papers,_preprints,_conference_proceedings,_etc)?'])])
+    input_dict['Q43_-_Approximately_how_many_times_have_you_used_a_TPU_(tensor_processing_unit)?'] = st.session_state.label_encoders["Q43_-_Approximately_how_many_times_have_you_used_a_TPU_(tensor_processing_unit)?"].transform([st.selectbox('Q43', st.session_state.options['Q43_-_Approximately_how_many_times_have_you_used_a_TPU_(tensor_processing_unit)?'])])
 
-        input_dict['Q12_1_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Python'] = 0
-        input_dict['Q12_2_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_R'] = 0
-        input_dict['Q12_3_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_SQL'] = 0
-        input_dict['Q12_4_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_C'] = 0
-        input_dict['Q12_5_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_C#'] = 0
-        input_dict['Q12_6_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_C++'] = 0
-        input_dict['Q12_7_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Java'] = 0
-        input_dict['Q12_8_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Javascript'] = 0
-        input_dict['Q12_9_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Bash'] = 0
-        input_dict['Q12_10_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_PHP'] = 0
-        input_dict['Q12_11_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_MATLAB'] = 0
-        input_dict['Q12_12_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Julia'] = 0
-        input_dict['Q12_13_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Go'] = 0
-        input_dict['Q12_14_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_None'] = 0
-        input_dict['Q12_15_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Other'] = 0
+    input_dict['Q12_1_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Python'] = 0
+    input_dict['Q12_2_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_R'] = 0
+    input_dict['Q12_3_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_SQL'] = 0
+    input_dict['Q12_4_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_C'] = 0
+    input_dict['Q12_5_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_C#'] = 0
+    input_dict['Q12_6_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_C++'] = 0
+    input_dict['Q12_7_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Java'] = 0
+    input_dict['Q12_8_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Javascript'] = 0
+    input_dict['Q12_9_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Bash'] = 0
+    input_dict['Q12_10_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_PHP'] = 0
+    input_dict['Q12_11_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_MATLAB'] = 0
+    input_dict['Q12_12_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Julia'] = 0
+    input_dict['Q12_13_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Go'] = 0
+    input_dict['Q12_14_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_None'] = 0
+    input_dict['Q12_15_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Other'] = 0
 
-        Q12_1 = st.checkbox('Python')
-        if Q12_1:
-            input_dict['Q12_1_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Python'] = 1
-        Q12_2 = st.checkbox('R')
-        if Q12_2:
-            input_dict['Q12_2_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_R'] = 1
+    Q12_1 = st.checkbox('Python')
+    if Q12_1:
+        input_dict['Q12_1_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Python'] = 1
+    Q12_2 = st.checkbox('R')
+    if Q12_2:
+        input_dict['Q12_2_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_R'] = 1
 
-        Q12_3 = st.checkbox('SQL')
-        if Q12_3:
-            input_dict['Q12_3_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_SQL'] = 1
-        Q12_4 = st.checkbox('C')
-        if Q12_4:
-            input_dict['Q12_4_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_C'] = 1
-        Q12_5 = st.checkbox('C#')
-        if Q12_5:
-            input_dict['Q12_5_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_C#'] = 1
-        Q12_6 = st.checkbox('C++')
-        if Q12_6:
-            input_dict['Q12_6_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_C++'] = 1
-        Q12_7 = st.checkbox('Java')
-        if Q12_7:
-            input_dict['Q12_7_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Java'] = 1
-        Q12_8 = st.checkbox('Javascript')
-        if Q12_8:
-            input_dict['Q12_8_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Javascript'] = 1
-        Q12_9 = st.checkbox('Bash')
-        if Q12_9:
-            input_dict['Q12_9_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Bash'] = 1
-        Q12_10 = st.checkbox('PHP')
-        if Q12_10:
-            input_dict['Q12_10_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_PHP'] = 1
-        Q12_11 = st.checkbox('MATLAB')
-        if Q12_11:
-            input_dict['Q12_11_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_MATLAB'] = 1
-        Q12_12 = st.checkbox('Julia')
-        if Q12_12:
-            input_dict['Q12_12_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Julia'] = 1
-        Q12_13 = st.checkbox('Go')
-        if Q12_13:
-            input_dict['Q12_13_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Go'] = 1
-        Q12_14 = st.checkbox('None')
-        if Q12_14:
-            input_dict['Q12_14_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_None'] = 1
-        Q12_15 = st.checkbox('Other')
-        if Q12_15:
-            input_dict['Q12_15_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Other'] = 1
+    Q12_3 = st.checkbox('SQL')
+    if Q12_3:
+        input_dict['Q12_3_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_SQL'] = 1
+    Q12_4 = st.checkbox('C')
+    if Q12_4:
+        input_dict['Q12_4_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_C'] = 1
+    Q12_5 = st.checkbox('C#')
+    if Q12_5:
+        input_dict['Q12_5_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_C#'] = 1
+    Q12_6 = st.checkbox('C++')
+    if Q12_6:
+        input_dict['Q12_6_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_C++'] = 1
+    Q12_7 = st.checkbox('Java')
+    if Q12_7:
+        input_dict['Q12_7_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Java'] = 1
+    Q12_8 = st.checkbox('Javascript')
+    if Q12_8:
+        input_dict['Q12_8_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Javascript'] = 1
+    Q12_9 = st.checkbox('Bash')
+    if Q12_9:
+        input_dict['Q12_9_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Bash'] = 1
+    Q12_10 = st.checkbox('PHP')
+    if Q12_10:
+        input_dict['Q12_10_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_PHP'] = 1
+    Q12_11 = st.checkbox('MATLAB')
+    if Q12_11:
+        input_dict['Q12_11_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_MATLAB'] = 1
+    Q12_12 = st.checkbox('Julia')
+    if Q12_12:
+        input_dict['Q12_12_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Julia'] = 1
+    Q12_13 = st.checkbox('Go')
+    if Q12_13:
+        input_dict['Q12_13_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Go'] = 1
+    Q12_14 = st.checkbox('None')
+    if Q12_14:
+        input_dict['Q12_14_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_None'] = 1
+    Q12_15 = st.checkbox('Other')
+    if Q12_15:
+        input_dict['Q12_15_-_What_programming_languages_do_you_use_on_a_regular_basis?_(Select_all_that_apply)_-_Selected_Choice_-_Other'] = 1
 
-        submit = st.form_submit_button(label='Submit')
-        if submit:
-            st.session_state.input_dict = input_dict
-
+    submit = st.form_submit_button(label='Submit')
+        
 
 if submit:
     # Read data file

@@ -161,7 +161,7 @@ with st.form(key='my_form'):
 
 if submit:
     # Read data file
-    data = pd.DataFrame(st.session_state.input_dict, index=[0])
+    data = pd.DataFrame(input_dict, index=[0])
     data=data[features]
     # Generate predictions
     predictions = st.session_state.model.predict(data)

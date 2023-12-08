@@ -166,7 +166,6 @@ if "input_dict" not in st.session_state:
 if submit:
     # Read data file
     data = pd.DataFrame(st.session_state.input_dict, index=[0])
-    st.write(data.columns)
     data=data[features]
     # Generate predictions
     predictions = st.session_state.model.predict(data)

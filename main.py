@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.ensemble import RandomForestRegressor
 
 features = [
     'Q4_-_In_which_country_do_you_currently_reside?',
@@ -43,8 +44,13 @@ if "data_loaded" not in st.session_state:
         df.columns=[col.replace(' ', '_') for col in df.columns]
         df[features[:12]]=df[features[:12]].fillna('None')
         df[features[12:]]=df[features[12:]].fillna('No')
-        df.dropna(subset='Q29_-_Mean_Salary', inplace=True)
-        
+        # Drop rows with NaN or empty values in the 'Q29_-_Mean_Salary' column
+        df = df[df['Q29_-_Mean_Salary'].notna() & (df['Q29_-_Mean_Salary'] != '')]
+
+        # Convert 'Q29_-_Mean_Salary' column to numeric
+        df['Q29_-_Mean_Salary'] = pd.to_numeric(df['Q29_-_Mean_Salary'], errors='coerce')
+        # Drop rows with NaN values in the target variable
+        df = df.dropna(subset=['Q29_-_Mean_Salary'])
         options={}
         for col in features:
             options[col] = df[col].unique().tolist()
@@ -58,13 +64,13 @@ if "data_loaded" not in st.session_state:
         X = df[features]
         y = df['Q29_-_Mean_Salary']
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-        model = GradientBoostingClassifier(n_estimators=20, 
+        model = RandomForestRegressor(n_estimators=20, 
                                     max_depth=10, 
-                                    learning_rate=0.144, 
-                                    min_samples_split=3, 
+                                    min_samples_split=25, 
                                     random_state=42)
         model.fit(X_train, y_train)
         st.session_state.data_loaded = True
+        st.session_state.df=df
         st.session_state.model=model
         st.session_state.label_encoders=label_encoders
         st.session_state.options = options
@@ -163,7 +169,19 @@ if submit:
     data = pd.DataFrame(input_dict, index=[0])
     data=data[features]
     # Generate predictions
-    predictions = st.session_state.model.predict(data)
-    st.write('Predictions:')
-    st.write(pd.DataFrame({'Prediction': predictions}))
+    prediction = st.session_state.model.predict(data)
+    prediction=prediction[0]
+    st.write('Predicted salary is: $', prediction)
+    fig=plt.figure(figsize=(10,5))
+    plt.hist(st.session_state.df['Q29_-_Mean_Salary'], bins=50, alpha=0.7, label='Salary Distribution',density=True)
 
+    # Plot current value
+    plt.axvline(x=prediction, color='red', linestyle='dotted', linewidth=2, label='Predicted Salary')
+
+    
+    plt.xlabel('Salary')
+    plt.ylabel('Frequency')
+    plt.title('Salary Distribution')
+    plt.xticks(rotation=45)
+    plt.legend()
+    st.pyplot(fig)
